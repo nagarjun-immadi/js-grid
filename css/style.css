@@ -1,0 +1,74 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table {
+    width:100%;
+}
+
+.filters {
+    margin-bottom: 10px;
+} 
+
+#search {
+    padding: 5px;
+}
+
+.message {
+    padding: 10px;
+    text-align: center;
+}
+
+.filters .add-user{
+    float: right;
+}
+
+.form-holder {
+    background: #e8e8e8;
+    padding: 30px 0px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-holder i.fa-times{
+    position: absolute;
+    top: 11px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group .label, .form-group .field {
+    float: left;
+    width: 49%;
+}
+
+.form-group .label{
+    text-align: right;
+    padding-right: 10px;
+    padding-top: 4px;
+}
+
+.form-group .field .form-control{
+    padding: 5px;
+}
+
+.clearfix::after {
+    content: ".";
+    visibility: hidden;
+    clear: both;
+    height: 0px;
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

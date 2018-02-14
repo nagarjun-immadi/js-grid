@@ -4,13 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
     <title>JS GRID</title>
 </head>
 <body>
     <h1>Users Grid</h1>
+    <div class="form-holder hide" id="form-holder">
+        <i class="fa fa-times" id="close"></i>
+        <form name="user-form" class="user-form">
+
+            <div class="form-group clearfix">
+                <div class="label">First Name:</div>
+                <div class="field">
+                    <input type="text" placeholder="First Name" name="first_name" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group clearfix">
+                <div class="label">Last Name:</div>
+                <div class="field">
+                    <input type="text" placeholder="Last Name" name="last_name" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group clearfix">
+                <div class="label">Email:</div>
+                <div class="field">
+                    <input type="text" placeholder="Email" name="email" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group clearfix">
+                <div class="label">Gender:</div>
+                <div class="field">
+                    <input type="radio" name="gender" value="Male" /> Male
+                    <input type="radio" name="gender" value="Female" /> Female
+                </div>
+            </div>
+
+            <div class="form-group clearfix">
+                <div class="label">Phone:</div>
+                <div class="field">
+                    <input type="number" placeholder="Phone" name="phone" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group clearfix">
+                <div class="label">Address:</div>
+                <div class="field">
+                    <textarea placeholder="Address" name="address" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group clearfix">
+                <div class="label">University:</div>
+                <div class="field">
+                    <input type="text" placeholder="University" name="university" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group clearfix">
+                <div class="label">Country:</div>
+                <div class="field">
+                    <select name="country">
+                        <option value="">Select a country</option>
+                        <option value="India">India</option>
+                        <option value="Russia">Russia</option>
+                        <option value="China">China</option>
+                        <option value="Czech Republic">Czech Republic</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Luxembourg">Luxembourg</option>
+                        <option value="USA">USA</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group clearfix">
+                <div class="label">DOB:</div>
+                <div class="field">
+                    <input type="date" placeholder="DOB" name="dob" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group clearfix">
+                <div class="label">Skills:</div>
+                <div class="field">
+                    <input type="checkbox" name="skills" value="java">Java<br>
+                    <input type="checkbox" name="skills" value=".net">.Net<br>
+                    <input type="checkbox" name="skills" value="Angular">Angular
+                </div>
+            </div>
+
+            <div class="form-group clearfix">
+                <div class="label">Experience:</div>
+                <div class="field">
+                    <input type="number" placeholder="Experience" name="experience" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group clearfix">
+                <div class="label">&nbsp;</div>
+                <div class="field">
+                    <button type="submit">Save</button>
+                    <button type="reset">Clear</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
     <div class="filters">
         <input type="text" id="search" placeholder="Search table" />
+        <button class="add-user" id="add-user">Add User</button>
     </div>
     <table id="grid">
         <thead>

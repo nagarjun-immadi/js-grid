@@ -1,5 +1,8 @@
 var tbody = document.getElementById('grid-body');
 var searchInput = document.getElementById('search');
+var addUser = document.getElementById('add-user');
+var formHolder = document.getElementById('form-holder');
+var close = document.getElementById('close');
 var usersData = [];
 
 function buildTable(users) {
@@ -25,6 +28,7 @@ function buildTable(users) {
 }
 
 function getUsers() {
+    tbody.innerHTML = '<tr class="message"><td colspan=12><img src="img/loader.gif" /></td></tr>';
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -63,4 +67,14 @@ searchInput.addEventListener("keyup", function(event) {
     } else {
         buildTable(usersData);
     }
+});
+
+addUser.addEventListener('click', function(event){
+    formHolder.classList.add("show");
+    formHolder.classList.remove("hide");
+});
+
+close.addEventListener('click', function(event){
+    formHolder.classList.add("hide");
+    formHolder.classList.remove("show");
 });
