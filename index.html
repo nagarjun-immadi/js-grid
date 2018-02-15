@@ -18,6 +18,7 @@
                 <div class="label">First Name:</div>
                 <div class="field">
                     <input type="text" placeholder="First Name" name="first_name" class="form-control" />
+                    <div class="error" id="first_name_error"></div>
                 </div>
             </div>
 
@@ -25,6 +26,7 @@
                 <div class="label">Last Name:</div>
                 <div class="field">
                     <input type="text" placeholder="Last Name" name="last_name" class="form-control" />
+                    <div class="error" id="last_name_error"></div>
                 </div>
             </div>
 
@@ -32,6 +34,7 @@
                 <div class="label">Email:</div>
                 <div class="field">
                     <input type="text" placeholder="Email" name="email" class="form-control" />
+                    <div class="error" id="email_error"></div>
                 </div>
             </div>
 
@@ -40,6 +43,7 @@
                 <div class="field">
                     <input type="radio" name="gender" value="Male" /> Male
                     <input type="radio" name="gender" value="Female" /> Female
+                    <div class="error" id="gender_error"></div>
                 </div>
             </div>
 
@@ -47,6 +51,7 @@
                 <div class="label">Phone:</div>
                 <div class="field">
                     <input type="number" placeholder="Phone" name="phone" class="form-control" />
+                    <div class="error" id="phone_error"></div>
                 </div>
             </div>
 
@@ -54,6 +59,7 @@
                 <div class="label">Address:</div>
                 <div class="field">
                     <textarea placeholder="Address" name="address" class="form-control"></textarea>
+                    <div class="error" id="address_error"></div>
                 </div>
             </div>
 
@@ -61,6 +67,7 @@
                 <div class="label">University:</div>
                 <div class="field">
                     <input type="text" placeholder="University" name="university" class="form-control" />
+                    <div class="error" id="university_error"></div>
                 </div>
             </div>
 
@@ -78,6 +85,7 @@
                         <option value="Luxembourg">Luxembourg</option>
                         <option value="USA">USA</option>
                     </select>
+                    <div class="error" id="country_error"></div>
                 </div>
             </div>
 
@@ -85,6 +93,7 @@
                 <div class="label">DOB:</div>
                 <div class="field">
                     <input type="date" placeholder="DOB" name="dob" class="form-control" />
+                    <div class="error" id="dob_error"></div>
                 </div>
             </div>
 
@@ -94,6 +103,7 @@
                     <input type="checkbox" name="skills" value="java">Java<br>
                     <input type="checkbox" name="skills" value=".net">.Net<br>
                     <input type="checkbox" name="skills" value="Angular">Angular
+                    <div class="error" id="skills_error"></div>
                 </div>
             </div>
 
@@ -101,13 +111,14 @@
                 <div class="label">Experience:</div>
                 <div class="field">
                     <input type="number" placeholder="Experience" name="experience" class="form-control" />
+                    <div class="error" id="experience_error"></div>
                 </div>
             </div>
 
             <div class="form-group clearfix">
                 <div class="label">&nbsp;</div>
                 <div class="field">
-                    <button type="submit">Save</button>
+                    <button type="submit" id="save">Save</button>
                     <button type="reset">Clear</button>
                 </div>
             </div>

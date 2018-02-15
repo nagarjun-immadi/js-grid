@@ -3,6 +3,7 @@ var searchInput = document.getElementById('search');
 var addUser = document.getElementById('add-user');
 var formHolder = document.getElementById('form-holder');
 var close = document.getElementById('close');
+var save = document.getElementById('save');
 var usersData = [];
 
 function buildTable(users) {
@@ -77,4 +78,123 @@ addUser.addEventListener('click', function(event){
 close.addEventListener('click', function(event){
     formHolder.classList.add("hide");
     formHolder.classList.remove("show");
+});
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function clearErrors() {
+    var errorDivIds = [
+        'first_name_error',
+        'last_name_error',
+        'email_error',
+        'gender_error',
+        'phone_error',
+        'address_error',
+        'university_error',
+        'country_error',
+        'dob_error',
+        'skills_error',
+        'experience_error',
+    ];
+
+    for (var index = 0; index < errorDivIds.length; index++) {
+        var element = document.getElementById(errorDivIds[index]);
+        element.innerHTML = '';
+    }
+}
+
+save.addEventListener('click', function(event){
+    event.preventDefault();
+    
+    clearErrors();
+
+    var errors = {};
+
+    var firstName = document.querySelector('input[name="first_name"]');
+    if(!firstName.value) {
+        errors.first_name = "Please enter first name";
+    }
+
+    var lastName = document.querySelector('input[name="last_name"]');
+    if(!lastName.value) {
+        errors.last_name = "Please enter last name";
+    }
+
+    var email = document.querySelector('input[name="email"]');
+    if(!email.value) {
+        errors.email = "Please enter email";
+    } else {
+        if(!validateEmail(email.value)) {
+            errors.email = "Please enter a valid email";
+        }
+    }
+
+    var genderArr = document.querySelectorAll('input[name="gender"]');
+    var genderValue = '';
+    for (var i = 0; i < genderArr.length; i++) {
+        if (genderArr[i].checked) {
+            genderValue = genderArr[i].value;
+            break;
+        }
+    }
+    if(!genderValue) {
+        errors.gender = "Please select";
+    }
+
+    var phone = document.querySelector('input[name="phone"]');
+    if(!phone.value) {
+        errors.phone = "Please enter phone number";
+    } else {
+        var phoneValue = String(phone.value);
+        if(phoneValue.length != 10) {
+            errors.phone = "Please enter a valid phone number";
+        }
+    }
+
+    var address = document.querySelector('textarea[name="address"]');
+    if(!address.value) {
+        errors.address = "Please enter address";
+    }
+
+    var university = document.querySelector('input[name="university"]');
+    if(!university.value) {
+        errors.university = "Please enter university";
+    }
+
+    var country = document.querySelector('select[name="country"]');
+    if(!country.value) {
+        errors.country = "Please select a country";
+    }
+
+    var dob = document.querySelector('input[name="dob"]');
+    if(!dob.value) {
+        errors.dob = "Please enter a date";
+    }
+
+    var skillsArr = document.querySelectorAll('input[name="skills"]');
+    var skillsValue = '';
+    for (var i = 0; i < skillsArr.length; i++) {
+        if (skillsArr[i].checked) {
+            skillsValue = skillsValue ? skillsValue +', '+ skillsArr[i].value : skillsArr[i].value;
+        }
+    }
+    if(!skillsValue) {
+        errors.skills = "Please select a skill";
+    }
+
+    var experience = document.querySelector('input[name="experience"]');
+    if(!experience.value) {
+        errors.experience = "Please enter experience";
+    }
+
+    for (var key in errors) {
+        if (errors.hasOwnProperty(key)) {
+            var error = errors[key];
+            var errorDiv = document.getElementById(key+'_error');
+            errorDiv.innerHTML = error;
+        }
+    }
 });
