@@ -73,6 +73,9 @@ searchInput.addEventListener("keyup", function(event) {
 addUser.addEventListener('click', function(event){
     formHolder.classList.add("show");
     formHolder.classList.remove("hide");
+    clearErrors();
+    var userForm = document.getElementsByName('user-form')[0];
+    userForm.reset();
 });
 
 close.addEventListener('click', function(event){
@@ -196,5 +199,40 @@ save.addEventListener('click', function(event){
             var errorDiv = document.getElementById(key+'_error');
             errorDiv.innerHTML = error;
         }
+    }
+
+    if(Object.keys(errors).length === 0) {
+        var data = {
+            "first_name": firstName.value,
+            "last_name": lastName.value,
+            "email": email.value,
+            "gender": genderValue,
+            "phone": String(phone.value),
+            "address": address.value,
+            "university": university.value,
+            "country": country.value,
+            "dob": dob.value,
+            "skills": skillsValue,
+            "experience": experience.value
+        };
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 201) {
+            var newUser = JSON.parse(this.responseText);
+            console.log(newUser);
+            usersData.push(newUser);
+            buildTable(usersData);
+            formHolder.classList.add("hide");
+            formHolder.classList.remove("show");
+
+            var userForm = document.getElementsByName('user-form')[0];
+            userForm.reset();
+          }
+        };
+        
+        xhttp.open("POST", "http://localhost:3000/users", true);
+        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhttp.send(JSON.stringify(data));
     }
 });
